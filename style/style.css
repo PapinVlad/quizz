@@ -1,0 +1,582 @@
+html {
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    user-select: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: url("/img/1.svg") lightgray 50% / cover no-repeat;
+    stroke-width: 1px;
+    stroke: #000;
+}
+.hidden {
+    display: none;
+}
+
+
+#date-time-wrapper {
+    border: 1px black solid;
+    background: aliceblue;
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
+#welcome-message{
+    border: 1px black solid;
+    background: aliceblue;
+    position: absolute;
+    top: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    left: 100px;
+    font-weight: bold;
+}
+
+
+#main-wrapper {
+    width: 75vw;
+    height: 75vh;
+    background: white;
+    padding: 90px 0;
+    border-radius: 18px;
+    border: 1px solid #e7ecfb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 30px 50px #98B0FA;
+}
+
+#start-wrapper {
+    text-align: center;
+}
+
+#start-title {
+    font-weight: bold;
+    font-size: 42px;
+}
+
+#start-title span {
+    font-size: .8em;
+}
+
+#start-username-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+#username {
+    margin: 48px 0;
+    background: #f3f5fc;
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 1px solid #e7ecfb;
+    text-align: center;
+    font-size: 16px;
+    color: #666f99;
+    transition: enterUsername, background-color 300ms ease-out;
+}
+
+#username:focus, .btn:focus, input:focus, #sort-btn:focus {
+    outline: 1px dashed #666f99;
+}
+
+#username-placeholder {
+    color: #bcc0d2;
+    font-weight: 400;
+    position: absolute;
+    pointer-events: none;
+    transition: 300ms ease-out;
+}
+#start-email-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#email {
+    width: 320px;
+    margin: 24px 0;
+    background: #f3f5fc;
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 1px solid #e7ecfb;
+    text-align: center;
+    font-size: 16px;
+    color: #666f99;
+    transition: background-color 300ms ease-out;
+}
+
+#email-placeholder {
+    color: #bcc0d2;
+    font-weight: 400;
+    position: absolute;
+    pointer-events: none;
+    transition: 300ms ease-out;
+}
+
+
+.btn {
+    padding:9px 10%;
+    background: #666f99;
+    border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: #565e81;
+}
+
+.btn:active {
+    background: #414762;
+}
+
+#quiz-wrapper {
+    margin: 90px 0;
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+}
+
+#progress-wrapper {
+    position: relative;
+    top: -60px;
+    padding: 0 30px;
+    margin-top: 60px;
+}
+
+#progress-icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fas{
+    font-size: 30px;
+}
+
+#progress_basic_numeracy, #progress_basic_literacy, #progress_basic_health_and_wellbeing, #progress_basic_scottish_history, #progress_basic_social_awareness, #progress-end {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3f5fc;
+    border: 1px solid #e7ecfb;
+    position: relative;
+    z-index: 2;
+    transition: 300ms ease-out;
+}
+
+#progress_basic_numeracy {
+    background: #e7ecfb;
+    border-color: #d3dcf8;
+}
+
+
+
+#progress-bar {
+    height: 20px;
+    width: 0;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: 21px;
+    left: 33px; 
+    z-index: 1;
+    transition: width 300ms ease-out;
+}
+
+#progress-bar-uncompleted {
+    height: 20px;
+    width: calc(100% - 66px); 
+    border-top: 1px solid #e7ecfb;
+    border-bottom: 1px solid #e7ecfb;
+    position: absolute;
+    top: 21px;
+    left: 33px; 
+    z-index: 1;
+}
+
+
+#question-wrapper {
+    text-align: center;
+    margin-top: -30px;
+    width: 100%;
+}
+
+#question {
+    font-size: 18px;
+    width: 100%;
+}
+#category{
+    margin-bottom: 15px;
+}
+
+#question-number{
+    margin-bottom: 15px;
+}
+
+#timer-wrapper{
+    margin-top: 15px;
+}
+
+#answers-wrapper {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answer-wrapper {
+    margin: 6px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #e7ecfb;
+    margin-left: -12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-out;
+    pointer-events: none;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+}
+
+.answer-wrapper:hover .checkmark {
+    background: #d3dcf8;
+}
+
+.answer-wrapper input:checked ~ .checkmark {
+    background: #666f99;
+}
+
+.answer-wrapper input:checked ~ .checkmark::after {
+    opacity: 1;
+}
+
+.answer-input {
+  position: relative;
+  left: -8px;
+  transform: scale(1.4);
+}
+
+input[type="radio"] {
+    margin: 9px 0;
+    opacity: 0;
+}
+
+
+
+#next-btn-wrapper, #start-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#leaderboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#leaderboard-title, table, tr {
+    text-align: center;
+    color: #666f99;
+}
+
+#retry-btn-wrapper {
+    text-align: center;
+}
+
+table {
+    border-spacing: 30px;
+    -webkit-border-vertical-spacing: 12px;
+    margin: 30px 0;
+    font-weight: 800;
+}
+
+#table-username-title, .table-username {
+    position: relative;
+    left: -15px;
+}
+
+#sort-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666f99;
+    padding: 9px;
+}
+
+#sort-btn:hover .fa-arrows-alt-v {
+    animation: sortArrowEnter 300ms ease-out;
+}
+
+.fa-arrows-alt-v {
+    position: relative;
+    left: 1px;
+    top: -1px;
+    font-size: 16px;
+    transition: 300ms ease-out;
+}
+
+#quiz-wrapper, #leaderboard-wrapper {
+    display: none;
+}
+
+@keyframes enterUsername {
+    0% {
+        transform: translateX(-10px);
+    }
+    20% {
+        transform: translateX(10px);
+    }
+    40% {
+        transform: translateX(-10px);
+    }
+    60% {
+        transform: translateX(5px);
+    }
+    80% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sortArrowEnter {
+    0% {
+        transform: rotateZ(0);
+    }
+    100% {
+        transform: rotateZ(180deg);
+    }
+}
+
+@keyframes progressSection {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+    
+  
+    #main-wrapper {
+        height: 75vh;
+        
+        border: 0;
+        box-shadow: none;
+    }
+
+    #progress-wrapper {
+        padding: 0;
+    }
+  
+    
+  
+    .fab {
+      font-size: 24px;
+    }
+
+    #start-title {
+      font-size: 30px;
+    }
+
+    #question {
+      font-size: 18px;
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .checkmark {
+        top: 5px;
+        left: -1px;
+    }
+
+    .checkmark::after {
+        left: 6px;
+        top: 6px;
+    }
+
+    #username-placeholder {
+        left: 110px;
+        top: 60px;
+    }
+}
+/* .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+} */
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+.btn-hovering {
+   
+    border: none;
+    outline: none;
+    color: #fff;
+    
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.btn-hovering:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: hoving 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.btn-hovering:active {
+    color: #000
+}
+
+.btn-hovering:active:after {
+    background: transparent;
+}
+
+.btn-hovering:hover:before {
+    opacity: 1;
+   
+}
+
+.btn-hovering:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes hoving {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
