@@ -17,7 +17,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: url("/img/1.svg") lightgray 50% / cover no-repeat;
+    background: url("/1.svg") lightgray 50% / cover no-repeat;
     stroke-width: 1px;
     stroke: #000;
 }
